@@ -1,0 +1,40 @@
+.footer-main-div {
+  margin-top: 100px;
+  background-color: #040536;
+  /* background-color: #ff6900; */
+  color: white;
+  /* background-color: orangered; */
+}
+.c-rw-div {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  padding-top: 50px;
+  /* align-items: center; */
+  flex-wrap: wrap;
+}
+.copy-right-div {
+  background: linear-gradient(#030424, #037a33af);
+  font-weight: 700;
+  /* background-color: #037a33af; */
+}
+.jhv {
+  width: 40%;
+}
+.jbi-foot {
+  width: 80%;
+  font-size: large;
+  font-weight: 700;
+}
+@media screen and (max-width: 780px) {
+  .jbi-foot {
+    width: 100%;
+  }
+  .c-rw-div {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
