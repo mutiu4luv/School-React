@@ -1,27 +1,28 @@
 import React, { useState } from "react";
-
-// import { makeStyles } from "@mui/material";
-import axios from "axios";
-import { makeStyles } from "@material-ui/core/styles";
-import {
-  Avatar,
-  Button,
-  Checkbox,
-  CssBaseline,
-  FormControl,
-  FormControlLabel,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField,
-  Typography,
-} from "@mui/material";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { Link, useNavigate } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import imgLogin from "../../assets/images/cso.jpeg";
+import {
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+} from "@mui/material";
+
+import { useNavigate } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,10 +31,9 @@ import CircularIndeterminate from "../../components/Loading/Progress";
 import TopNavBar from "../../components/TopNavBar/TopNavBar";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { LoginSchool } from "../../APiData/Api";
+import { StudentLoginApi } from "../../APiData/Api";
 import imger from "../../assets/images/hero.png";
-
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
     marginBottom: "50px",
@@ -67,13 +67,13 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-const SchoolLogin = () => {
+const LoginScreen = () => {
   const classes = useStyles();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  const [schoolRegNumber, setSchoolRegNumber] = useState("");
 
-  const [schoolRegCode, setSchoolRegCode] = useState("");
+  const [password, setPassword] = useState("");
 
   const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = useState(false);
@@ -98,8 +98,8 @@ const SchoolLogin = () => {
     e.preventDefault();
     setLoading(true);
     const data: any = {
-      email: email,
-      schoolRegCode: schoolRegCode,
+      schoolRegNumber: schoolRegNumber,
+      password: password,
     };
 
     const headers: any = {
@@ -110,29 +110,28 @@ const SchoolLogin = () => {
     };
 
     axios
-      .post(LoginSchool, data, headers)
+      .post("http://localhost:5000/api/auth/student-login/", data, headers)
 
       .then((res) => {
         console.log(res.data);
         setLoading(false);
         if (res.data) {
-          setEmail("");
-          setSchoolRegCode("");
+          setSchoolRegNumber("");
+          setPassword("");
 
-          localStorage.setItem("schoolId", res.data._id);
-          localStorage.setItem("SchoolName", res.data.name);
+          localStorage.setItem("userId", res.data._id);
+          localStorage.setItem("roles", res.data.roles);
 
-          localStorage.setItem("schoolType", res.data.schoolType);
+          localStorage.setItem("isAdmin", res.data.isAdmin);
           console.log(res.data);
           toast.success("post sucessful");
-          //   {
-          //     res.data.isAdmin == true
-          //       ? navigate("/admin-layout")
-          //       : res.data.roles == "Form-Teacher"
-          //       ? navigate("/admin-layout")
-          //       : navigate("/");
-          //   }
-          navigate("/admin");
+          {
+            res.data.isAdmin == true
+              ? navigate("/admin")
+              : res.data.roles == "Form-Teacher"
+              ? navigate("/admin")
+              : navigate("/");
+          }
         } else {
           toast.error(res.data.error);
         }
@@ -155,36 +154,32 @@ const SchoolLogin = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in School Account
+              Sign in
             </Typography>
             <form className={classes.form} noValidate onSubmit={submitHandler}>
               <TextField
                 variant="outlined"
                 margin="normal"
-                type="email"
+                type="text"
                 required
                 fullWidth
                 id="schoolRegNumber"
-                label="Email"
+                label="School Admission Number"
                 name="schoolRegNumber"
                 autoComplete="schoolRegNumber"
                 autoFocus
-                value={email}
-                onChange={(e: any) => setEmail(e.target.value)}
+                value={schoolRegNumber}
+                onChange={(e) => setSchoolRegNumber(e.target.value)}
               />
-              <FormControl
-                variant="outlined"
-                fullWidth
-                style={{ paddingTop: "5px" }}
-              >
+              <FormControl variant="outlined" fullWidth>
                 <InputLabel htmlFor="outlined-adornment-password">
-                  School Reg Code
+                  Password
                 </InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
                   type={showPassword ? "text" : "password"}
-                  value={schoolRegCode}
-                  onChange={(e) => setSchoolRegCode(e.target.value)}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -202,7 +197,7 @@ const SchoolLogin = () => {
               </FormControl>
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label="Remember to check your email to obtain your School Reg Code"
+                label="Remember me"
               />
               {loading ? (
                 <CircularIndeterminate />
@@ -221,23 +216,29 @@ const SchoolLogin = () => {
                 </div>
               )}
 
-              <div>
+              <Grid container>
                 {/* <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
               </Grid> */}
-                <div className="mt-4">
-                  <Link to="/reset-regCode">
-                    {"Forgotten School Reg Code?. Reset Here!"}
+                <Grid item>
+                  <Link href="/reset-password" variant="body2">
+                    {"Forgotten Password?. Reset Here!"}
                   </Link>
-                </div>
-              </div>
-              <div className="mt-2">
-                <Link to="/RegisterSchool" style={{ color: "green" }}>
-                  {"New School?. Register Here."}
-                </Link>
-              </div>
+                </Grid>
+              </Grid>
+              <Grid container>
+                <Grid item>
+                  <Link
+                    href="/staff-login"
+                    variant="body2"
+                    style={{ color: "green" }}
+                  >
+                    {"Are You a Staff?. Login Here."}
+                  </Link>
+                </Grid>
+              </Grid>
               {/* <Box mt={5}>
               <MadeWithLove />
             </Box> */}
@@ -250,4 +251,4 @@ const SchoolLogin = () => {
   );
 };
 
-export default SchoolLogin;
+export default LoginScreen;

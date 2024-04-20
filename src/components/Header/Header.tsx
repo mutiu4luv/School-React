@@ -77,7 +77,8 @@ export default function Header(props: Props) {
       onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
-        backgroundColor: "darkorange",
+        // backgroundColor: "darkorange",
+        backgroundColor: "  #040536",
         color: "white",
         height: "140vh",
       }}
@@ -104,28 +105,12 @@ export default function Header(props: Props) {
           }}
         >
           <ListItem>
-            {" "}
-            <Link
-              to="/admission-portal"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              {" "}
-              Admission
-            </Link>
-          </ListItem>
-          <ListItem>
             <Link
               to="/online-result"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               {" "}
               Check Result
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-              {" "}
-              Online Learning
             </Link>
           </ListItem>
 
@@ -143,6 +128,16 @@ export default function Header(props: Props) {
             >
               {" "}
               Login
+            </Link>
+          </ListItem>
+          <ListItem>
+            {" "}
+            <Link
+              to="/staff-login"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              {" "}
+              Staff Login
             </Link>
           </ListItem>
           {/* <ListItem>
@@ -260,30 +255,11 @@ export default function Header(props: Props) {
                 <ListItem>
                   {" "}
                   <Link
-                    to="/admission-portal"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    Admission
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  {" "}
-                  <Link
                     to="/online-result"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <span>Check</span>
                     <span style={{ marginLeft: "5px" }}>Result</span>
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link
-                    to="/"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    {" "}
-                    <span>Online</span>
-                    <span style={{ marginLeft: "5px" }}>Learning</span>
                   </Link>
                 </ListItem>
 
@@ -305,6 +281,16 @@ export default function Header(props: Props) {
                   </Link>
                 </ListItem>
 
+                <ListItem>
+                  <Link
+                    to="/staff-login"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    {" "}
+                    <span>Staff</span>
+                    <span style={{ marginLeft: "5px" }}>Login</span>
+                  </Link>
+                </ListItem>
                 {/* <ListItem>
                   <Link
                     to="/register"
