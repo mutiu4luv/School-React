@@ -1,0 +1,27 @@
+.result-input-elect-nursery1 {
+  width: 380px;
+  text-align: left;
+  border-color: #5372f0;
+  border: 1px solid #5372f0;
+}
+@media screen and (max-width: 1200px) {
+  .result-input-elect-nursery1 {
+    width: 250px;
+    text-align: left;
+  }
+}
+@media screen and (max-width: 768px) {
+  .result-input-elect-nursery1 {
+    width: 350px;
+    text-align: left;
+  }
+}
+@media screen and (max-width: 480px) {
+  .result-input-elect-nursery1 {
+    width: 220px;
+    text-align: left;
+  }
+  .text-texfield-input {
+    border-width: 150px;
+  }
+}

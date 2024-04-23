@@ -29,13 +29,7 @@ export default function AdminLayout(props: Props) {
     // Optionally, you can save the user preference in local storage
     localStorage.setItem("darkMode", JSON.stringify(!darkMode));
   };
-  useEffect(() => {
-    if (schoolInfo) {
-      navigate("/admin");
-    } else {
-      navigate("/");
-    }
-  }, [schoolInfo]);
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {

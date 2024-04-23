@@ -5,13 +5,13 @@ import { schoolInfo } from "../../store/Info";
 import { useNavigate } from "react-router-dom";
 const AdminDashboard = () => {
   const navigate = useNavigate();
-  // React.useEffect(() => {
-  //   if (schoolInfo) {
-  //     navigate("/admin");
-  //   } else {
-  //     navigate("/");
-  //   }
-  // }, [schoolInfo]);
+  React.useEffect(() => {
+    if (schoolInfo) {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
+  }, [schoolInfo]);
   return (
     <AdminLayout>
       <div className="head-title">

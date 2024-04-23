@@ -14,6 +14,11 @@ import CommutativeResultChecker from "./screens/CheckResultScreen/CommutativeRes
 import { MyResult } from "./screens/CheckResultScreen/MyResult";
 
 import AdminDashboard from "./admin/AdminDashboard/AdminDashboard";
+import AdminCreateClass from "./admin/AdminClasses/AdminCreateClass";
+import RegisterStudent from "./admin/AdminStudents/RegisterStudent";
+import AdminCreateSubject from "./admin/AdminSubjects/AdminCreateSubject";
+import AdminSubjectScore from "./admin/AdminSubjectScore/AdminSubjectScore";
+import StudentSubjectScores from "./admin/AdminSubjectScore/StudentSubjectScores";
 
 function App() {
   return (
@@ -46,6 +51,14 @@ function App() {
         {/* commutative result */}
         {/* Admin */}
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/register-student" element={<RegisterStudent />} />
+        <Route path="/create-class" element={<AdminCreateClass />} />
+        <Route path="/create-subject" element={<AdminCreateSubject />} />
+        <Route path="/subject-score" element={<AdminSubjectScore />} />
+        <Route
+          path="/student-subject-score/:id/:selectedClass/:selectedSchool"
+          element={<StudentSubjectScores />}
+        />
 
         {/* Admin */}
       </Routes>

@@ -82,7 +82,10 @@ const AdminSideBar = () => {
               Class <MdKeyboardArrowDown style={{ marginLeft: "5px" }} />
             </MenuButton>
             <Menu>
-              <MenuItem>Create Class</MenuItem>
+              <MenuItem>
+                {" "}
+                <Link to="/create-class">Create Class</Link>{" "}
+              </MenuItem>
               <MenuItem>View Classes</MenuItem>
             </Menu>
           </Dropdown>
@@ -100,7 +103,9 @@ const AdminSideBar = () => {
               Subjects <MdKeyboardArrowDown style={{ marginLeft: "5px" }} />
             </MenuButton>
             <Menu>
-              <MenuItem>Create Subject</MenuItem>
+              <MenuItem>
+                <Link to="/create-subject">Create Subject</Link>
+              </MenuItem>
               <MenuItem>View Subjects</MenuItem>
             </Menu>
           </Dropdown>
@@ -119,7 +124,10 @@ const AdminSideBar = () => {
               <MdKeyboardArrowDown style={{ marginLeft: "5px" }} />
             </MenuButton>
             <Menu>
-              <MenuItem>Create Student Subject Score</MenuItem>
+              <MenuItem>
+                {" "}
+                <Link to="/subject-score">Create Student Subject Score</Link>
+              </MenuItem>
               <MenuItem>View Student Subject Score</MenuItem>
             </Menu>
           </Dropdown>

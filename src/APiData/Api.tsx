@@ -6,7 +6,7 @@ export const LoginSchool = `${Base_Url}/api/AuthSchool/schoolLogin/`;
 export const getAllSchools = `${Base_Url}/api/School/`;
 
 ///User Api
-export const UserApi = `${Base_Url}/api/User/`;
+export const UserApi = `${Base_Url}/api/Users/`;
 export const StudentLoginApi = `${Base_Url}/api/auth/student-login/`;
 export const StaffLoginApi = `${Base_Url}/api/auth/login/`;
 export const RegisterStudentApi = `${Base_Url}/api/auth/registers/`;
