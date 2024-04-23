@@ -120,6 +120,8 @@
   .footer-regis {
     font-size: larger;
   }
+  .hit {
+  }
 }
 @media screen and (max-width: 480px) {
   .footer-img-div {
