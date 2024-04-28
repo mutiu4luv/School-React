@@ -19,6 +19,8 @@ import RegisterStudent from "./admin/AdminStudents/RegisterStudent";
 import AdminCreateSubject from "./admin/AdminSubjects/AdminCreateSubject";
 import AdminSubjectScore from "./admin/AdminSubjectScore/AdminSubjectScore";
 import StudentSubjectScores from "./admin/AdminSubjectScore/StudentSubjectScores";
+import AdminCreateResult from "./admin/AdminResult/AdminCreateResult";
+import CreateStudentResult from "./admin/AdminResult/CreateStudentResult";
 
 function App() {
   return (
@@ -59,7 +61,11 @@ function App() {
           path="/student-subject-score/:id/:selectedClass/:selectedSchool"
           element={<StudentSubjectScores />}
         />
-
+        <Route path="/create-result" element={<AdminCreateResult />} />
+        <Route
+          path="/student-result-create/:id/:selectedClass/:selectedSchool"
+          element={<CreateStudentResult />}
+        />
         {/* Admin */}
       </Routes>
     </>

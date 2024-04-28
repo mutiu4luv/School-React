@@ -145,7 +145,10 @@ const AdminSideBar = () => {
               Result <MdKeyboardArrowDown style={{ marginLeft: "5px" }} />
             </MenuButton>
             <Menu>
-              <MenuItem>Create Result</MenuItem>
+              <MenuItem>
+                {" "}
+                <Link to="/create-result">Create Result</Link>
+              </MenuItem>
               <MenuItem>View Result</MenuItem>
             </Menu>
           </Dropdown>
