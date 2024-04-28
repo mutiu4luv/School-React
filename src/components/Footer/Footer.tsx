@@ -32,7 +32,7 @@ const Footer = () => {
             <div className="footer-img-div">
               <img src={logo} alt="logo" className="footer-img" />{" "}
             </div>
-            <div className="footer-regis">MYEDURESULT</div>
+            <div className="footer-regis">ZIZI</div>
             <div>
               <a href="" className="text-white me-4">
                 <Link

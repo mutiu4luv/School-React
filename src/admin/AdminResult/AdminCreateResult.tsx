@@ -23,7 +23,7 @@ import CircularIndeterminate from "../../components/Loading/Progress";
 import { ClassApi, UserApi, getAllSchools } from "../../APiData/Api";
 import { schoolInfo } from "../../store/Info";
 
-const AdminSubjectScore = () => {
+const AdminCreateResult = () => {
   const [selectedSchool, setSelectedSchool] = React.useState<any>("");
   const [selectedClass, setSelectedClass] = React.useState<any>("");
   const [filteredresultData, setFilteredResultData] = React.useState([]);
@@ -219,7 +219,7 @@ const AdminSubjectScore = () => {
               <th>Class</th>
               <th>School Reg No</th>
 
-              <th>Input Student Subject Score</th>
+              <th>Input Student Result</th>
             </tr>
           </thead>
           <tbody>
@@ -247,7 +247,7 @@ const AdminSubjectScore = () => {
                   <td>
                     {" "}
                     <Link
-                      to={`/student-subject-score/${row?._id}/${selectedClass}/${selectedSchool}`}
+                      to={`/student-result-create/${row?._id}/${selectedClass}/${selectedSchool}`}
                     >
                       <Button className="btn-sm">
                         <BsFillBookmarkCheckFill />{" "}
@@ -263,4 +263,4 @@ const AdminSubjectScore = () => {
   );
 };
 
-export default AdminSubjectScore;
+export default AdminCreateResult;

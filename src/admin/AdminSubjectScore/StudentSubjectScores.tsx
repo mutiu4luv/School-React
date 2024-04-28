@@ -50,6 +50,7 @@ const StudentSubjectScores = () => {
     switch (subject) {
       case "subjectsData":
         setSubjectsData((prev: any) => ({ ...prev, [type]: value }));
+
         break;
     }
   };
@@ -134,7 +135,7 @@ const StudentSubjectScores = () => {
     };
 
     axios
-      .post(SubjectMarksApi, data, headers)
+      .post("http://localhost:5000/api/SubjectMarks", data, headers)
 
       .then((res) => {
         console.log(res.data);
@@ -169,7 +170,7 @@ const StudentSubjectScores = () => {
           <div className="container">
             <div className="item-center">
               {" "}
-              <div className="title">Student Subject Score</div>
+              <div className="titler">Student Subject Score</div>
             </div>
 
             <div className="content">
@@ -294,19 +295,56 @@ const StudentSubjectScores = () => {
                               required
                               rows={4}
                               id="outlined-required"
-                              label={selectedSubject.replace(/_/g, " ")}
+                              label="Subject Name"
                               name="subjectName"
                               type="text"
                               value={selectedSubject}
-                              //   onChange={(e: any) =>
-                              //     handleInputChange(
-                              //       "subjectsData",
-                              //       "subjectName",
-                              //       e.target.value
-                              //     )
-                              //   }
+                              // onChange={(e) =>
+                              //   handleInputChange(
+                              //     "subjectsData",
+                              //     "subjectName",
+                              //     +e.target.value
+                              //   )
+                              // }
                             />
                           </div>
+                          {/* <div
+                            className="col-md-6 mb-2 mt-1"
+                            // style={{
+                            //   marginLeft: "auto",
+                            //   marginRight: "auto",
+                            // }}
+                          >
+                            <FormControl sx={{ width: 370 }}>
+                              <InputLabel id="demo-multiple-name-label">
+                                Subject
+                              </InputLabel>
+                              <Select
+                                style={{
+                                  width: "150px",
+                                  marginLeft: "4px",
+                                }}
+                                required
+                                //   rows={4}
+                                id="outlined-required"
+                                //   label={selectedSubject.replace(/_/g, " ")}
+                                name="subjectName"
+                                //   type="text"
+                                value={subjectsData.subjectName}
+                                onChange={(e: any) =>
+                                  handleInputChange(
+                                    "subjectsData",
+                                    "subjectName",
+                                    e.target.value
+                                  )
+                                }
+                              >
+                                <MenuItem value={selectedSubject}>
+                                  {selectedSubject.replace(/_/g, " ")}{" "}
+                                </MenuItem>
+                              </Select>
+                            </FormControl>
+                          </div> */}
                           <div className="col-md-6 mb-2 mt-2 ">
                             <TextField
                               style={{
