@@ -1,6 +1,6 @@
 import React from 'react'
 import { About, Contact, Courses, Home, Navbar, Teacher } from '../components'
-import Testimony from '../components/container/Testimony'
+import Testimony from '../components/landingPage/Testimony'
 import Footer from '../components/Footer/Footer'
 import TopNavBar from '../components/TopNavBar/TopNavBar'
 import Header from '../components/Header/Header'
