@@ -11,3 +11,25 @@
   margin-left: auto;
   margin-right: auto;
 }
+.containers {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  img {
+    @apply w-full;
+  }
+
+  .section {
+    @apply container mx-auto py-24 px-6;
+  }
+  .animate-slide:hover {
+    animation-play-state: paused;
+  }
+}

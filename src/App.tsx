@@ -21,6 +21,7 @@ import AdminSubjectScore from "./admin/AdminSubjectScore/AdminSubjectScore";
 import StudentSubjectScores from "./admin/AdminSubjectScore/StudentSubjectScores";
 import AdminCreateResult from "./admin/AdminResult/AdminCreateResult";
 import CreateStudentResult from "./admin/AdminResult/CreateStudentResult";
+import LandingPage from "./screens/LandingPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         {/* home route */}
         <Route path="/" element={<SchoolLogin />} />
+        <Route path="/home" element={<LandingPage />} />
         {/* home route */}
         {/* school route */}
         <Route path="/RegisterSchool" element={<SchoolRegister />} />
